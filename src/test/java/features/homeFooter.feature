@@ -44,3 +44,6 @@ Feature: HomePage Test
   Scenario: Footer  Test language
     When click language
     Then assert language
+  Scenario: Close Driver
+    When click HomePage
+    Then close Driver

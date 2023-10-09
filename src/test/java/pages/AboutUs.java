@@ -1,6 +1,8 @@
 package pages;
 
 import common.AbstracClass;
+import common.Driver;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import lombok.Getter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,8 +11,12 @@ import org.openqa.selenium.support.PageFactory;
 
 @Getter
 public class AboutUs extends AbstracClass {
-    public AboutUs(WebDriver driver) {
-        PageFactory.initElements(driver, this);
+    private WebDriver driver;
+    public AboutUs() {
+        driver = Driver.getDriver();
+        WebDriverManager.chromedriver().setup();
+        driver.get("https://viaporttrans.com/");
+        PageFactory.initElements(Driver.getDriver(), this);
     }
 
     @FindBy(xpath = "//*[@id=\"menu-main-menu\"]/li[1]/a")
@@ -29,5 +35,30 @@ public class AboutUs extends AbstracClass {
     private WebElement contactus;
 
 
+    public void navigate() {
+        clicFunction(AboutUs);
+    }
 
+    public void clickMission() {
+        clicFunction(moreDetails1);
+    }
+
+    public void assertMission() {
+        assertLinks(driver,getAboutUsLinks());
+    }
+
+    public void clickVision() {
+        clicFunction(moreDetails2);
+    }
+    public void assertVision() {
+        assertLinks(driver,getAboutUsLinks());
+    }
+
+    public void clickGetQuete() {
+        clicFunction(getQuete);
+    }
+
+    public void assertisPageContacUs() {
+        assertLinks(driver,getContactUsLinks());
+    }
 }

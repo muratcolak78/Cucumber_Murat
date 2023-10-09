@@ -24,7 +24,7 @@ public class Service extends AbstracClass {
     private WebElement services;
     @FindBy(xpath = "//*[@id=\"menu-main-menu\"]/li[3]/ul/li[1]/a")
     private WebElement serviceStorage;
-    @FindBy(xpath = "//*[@id=\"menu-main-menu\"]/li[3]/ul/li[2]/a")
+    @FindBy(xpath = "//a[@href=\"https://viaporttrans.com/logistic-2/\"]")
     private WebElement serviceLogistic;
     @FindBy(xpath = "//*[@id=\"menu-main-menu\"]/li[3]/ul/li[3]/a")
     private WebElement serviceTransport;
@@ -53,7 +53,7 @@ public class Service extends AbstracClass {
     }
 
     public void gotoLogistik() throws InterruptedException {
-        Thread.sleep(1000);
+        //Thread.sleep(1000);
         moveToElement(serviceLogistic);
         clicFunction(serviceLogistic);
     }

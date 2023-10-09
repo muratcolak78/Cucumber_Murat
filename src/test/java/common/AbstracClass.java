@@ -66,4 +66,7 @@ public abstract class AbstracClass {
         webDriverWait.until(ExpectedConditions.urlContains(links));
         Assert.assertFalse(driver.getCurrentUrl().equals(links));
     }
+    public void assertMessage(WebElement element, String text){
+        Assert.assertTrue(element.getText().contains(text));
+    }
 }

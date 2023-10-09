@@ -12,6 +12,7 @@ import common.AbstracClass;
 @Getter
 public class ContactUs extends AbstracClass {
     private WebDriver driver;
+
     public ContactUs() {
         driver = Driver.getDriver();
         WebDriverManager.chromedriver().setup();
@@ -33,10 +34,10 @@ public class ContactUs extends AbstracClass {
 
     @FindBy(xpath = "//input[@placeholder='Email*']")
     private WebElement email;
-     @FindBy(xpath = "//*[@id=\"wpcf7-f1260-p15-o1\"]/form/div[2]/p[4]/span/textarea")
+    @FindBy(xpath = "//*[@id=\"wpcf7-f1260-p15-o1\"]/form/div[2]/p[4]/span/textarea")
     private WebElement message;
-   @FindBy(xpath = "//input[@type='submit']")
-    private WebElement buttonSubmit;
+    @FindBy(xpath = "//*[@id=\"wpcf7-f1260-p15-o1\"]/form/div[2]/p[5]/input")
+    private WebElement sendMessage;
 
     @FindBy(xpath = "//div[@class='wpcf7-response-output']")
     private WebElement lastMessage;
@@ -52,32 +53,41 @@ public class ContactUs extends AbstracClass {
 
     @FindBy(xpath = "//div/form/*[contains(text(),'Failed to send your message.')]")
     private WebElement failedMassage;
-
     @FindBy(xpath = "//div/*[contains(text(),'Get in touch')]")
     private WebElement getITouchText;
-
+    @FindBy(xpath = "//*[@id=\"wpcf7-f1260-p15-o1\"]/form/div[3]")
+    private WebElement validationMessage2;
     @FindBy(xpath = "//div/*[contains(text(),'Validation errors')]")
     private WebElement validationMassage;
 
-    public void clickContactUs(){
-        clicFunction(getContactUs());
-    }
-    public void sendName(String name2){
-        sendKeysFunktions(name,name2);
-    }
-    public void sendSubject(String konu){
-        sendKeysFunktions(subject,konu);
-    }
-    public void sendEmail(String email2){
-        sendKeysFunktions(email,email2);
-    }
-    public void sendSMessage(String mesaj){
-        sendKeysFunktions(message,mesaj);
-    }
-    public void submit(){
-        clicFunction(buttonSubmit);
+    public void navigateContact() {
+        clicFunction(ContactUs);
     }
 
-//*[@id="wpcf7-f1260-p15-o1"]/form/div[3]
+    public void sendName(String name2) {
+        clicFunction(name);
+        sendKeysFunktions(name, name2);
+    }
 
+    public void sendSubject(String konu) {
+        clicFunction(subject);
+        sendKeysFunktions(subject, konu);
+    }
+
+    public void sendEmail(String email2) {
+        sendKeysFunktions(email, email2);
+    }
+
+    public void sendSMessage(String mesaj) {
+        sendKeysFunktions(message, mesaj);
+    }
+
+    public void clickSenmessage() {
+        clicFunction(sendMessage);
+    }
+
+    public void assertContactSended() {
+        assertMessage(lastMessage2, validationMessage2.getText());
+
+    }
 }

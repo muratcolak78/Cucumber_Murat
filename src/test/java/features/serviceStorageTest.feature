@@ -8,19 +8,17 @@ Feature: Service Storage Test
     Then assert isPageServiceStorage
 
   Scenario: ServiceLogistik Test
-    When click Logistic
-    Then assert isPageServiceLogistik
-
-  Scenario: LogistikContactUs test
     And click Logistic
+    And assert isPageServiceLogistik
     When click LogistikContactUst
     Then assertLogistikContactUs
 
     Scenario: Transport Test
-      When click Transport
-      Then assert isPageTransport
-
-      Scenario: TransportContactUs Test
-        And click Transport
+      And click Transport
+      And assert isPageTransport
         When click transportContactUs
         Then assert isPageContactUs
+
+  Scenario: Close Driver
+    When click HomePage
+    Then close Driver

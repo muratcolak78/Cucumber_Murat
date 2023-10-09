@@ -1,7 +1,6 @@
 Feature: Forum2
   Background:
-    Given Navigate HomePage
-    And  click ContactUs
+    Given Navigate ContactUs
 
    Scenario Outline: 1
       And typeName"<Name>"
