@@ -24,6 +24,14 @@ public class HomePage extends AbstracClass {
 
 /*when you are finding locators in a dynamic page you should use some static points such as @id=menu-main-menu. but instead of using li[2]
 try to handle this with text. As I see this element contains "Vehicle fleet" as text Apply this logic to all elements here  */
+
+    /*
+    Sources to work CSS
+    https://www.browserstack.com/guide/css-selectors-in-selenium
+    * https://flukeout.github.io/
+    * */
+
+    ////*[@id="menu-main-menu"]//a[text()="Vehicle fleet"] => example with text
     @FindBy(xpath = "//*[@id=\"menu-main-menu\"]/li[2]/a")
     private WebElement vehicleFleet;
 
