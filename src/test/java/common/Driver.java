@@ -13,7 +13,7 @@ public class Driver {
     public static WebDriver getDriver(){
         if(driver==null){
             System.setProperty("webdriver.chrome.driver","C:\\chrome116Drivers\\chromedriver-win64\\chromedriver.exe");
-            ChromeOptions cop=new ChromeOptions();
+            ChromeOptions cop = new ChromeOptions();
             cop.setBinary("C:\\chrome116Drivers\\chrome-win64\\chrome.exe");
 
             driver = new ChromeDriver(cop);
